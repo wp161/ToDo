@@ -1,0 +1,28 @@
+Design Pattern
+
+
+Structure
+
+MVC Architecture 
+- Model: model package 
+- View: view package 
+- Controller:  task package, command package
+
+Pattern
+
+Abstract factory pattern 
+- Where: createSubTask() method in IMainTask interface, implemented in concrete MainTask classes (e.g. AddNewTodo, DisplayTodo) in task package 
+- Why: Hides the constructor behind abstraction; the method decides which subtype to return, not the client
+
+Iterator 
+- Where: TodoCategoryIterator class in task package 
+- Why: Encapsulates the approach to find all Todos with a certain category in a single class
+
+Builder Pattern 
+- Where: CommandLineOption class in command package 
+- Why: For this todo application, we can divide users’ input into four big categories presented by enums in UserSetting class in model package. Each big category has its own restrictions, for example, whether it has args or not, the length of args and so on. Using builder pattern can help us easily create the object of each specific tasks along with its own limitation
+
+Singleton 
+- Where: static method createTodoList() in TodoList class in model package 
+- Why: ensures data consistency of TodoList throughout the lifetime of program 
+- Notes: In the current version of our application, createTodoList() isn’t of the real singleton pattern for the sake of writing unit tests, but it can be easily changed back to be a singleton once testing is completed.
